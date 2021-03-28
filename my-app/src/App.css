@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.title {
+}
+.addButton {
+  margin-right: 3px;
+}
+.taskListContainer {
+  margin-top: 2%;
+  border-top: 1px solid black;
+  width: 50%;
+}
+.taskContainer {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.taskButtonContainer {
+  display: flex;
+}
+.taskDescription {
+  display: flex;
+  padding-left: 2%;
+  font-size: 1.6em;
+  flex-wrap: wrap;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+}
+.taskDone {
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: red;
+  border: none;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.complete {
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: #09d63f;
+  border: none;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+.priority {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 50px;
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+.low {
+  background-color: green;
+}
+.normal {
+  background-color: yellow;
+}
+.high {
+  background-color: red;
+}
+.completed {
+  background-color: gray;
+  text-decoration: line-through white;
+}
