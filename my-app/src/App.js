@@ -5,6 +5,7 @@ import TaskList from "./components/TaskList";
 import Today from "./components/Today";
 import SettingButtons from "./components/SettingButtons";
 import Defaults from "./components/Defaults";
+import Weather from "./components/Weather";
 import "./App.css";
 
 function App() {
@@ -15,14 +16,14 @@ function App() {
   return (
     <div className="App">
       <div className="appContainer">
-        <Title />
+        <Today today={today} setToday={setToday} />
+        <Weather />
         <Defaults
           tasks={tasks}
           setTasks={setTasks}
           today={today}
           setToday={setToday}
         />
-        <Today today={today} setToday={setToday} />
 
         <Input tasks={tasks} setTasks={setTasks} />
         <SettingButtons tasks={tasks} setTasks={setTasks} />

@@ -10,7 +10,7 @@ export default function Today({ today, setToday }) {
 
   return (
     <div className="dateContainer">
-      <div className="today">{today}</div>
+      <h1 className="today">To Do List {today}</h1>
     </div>
   );
 }
