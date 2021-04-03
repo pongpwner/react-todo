@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Input({ tasks, setTasks }) {
   const [taskName, setTaskName] = useState("");
   const [priority, setPriority] = useState("normal");
   const [status, setStatus] = useState(false);
+
+  // useEffect(()=>{
+  //   setPriority()
+
+  // },[setPriority()]
+  // )
+
   function addTask() {
     console.log(tasks);
     setTasks((prevTasks) => [
@@ -15,7 +22,7 @@ export default function Input({ tasks, setTasks }) {
         status: status,
       },
     ]);
-    //Math.floor(Math.random() * (100 - 1) + 1),
+    
     setTaskName("");
     setPriority("normal");
     console.log(tasks);
@@ -39,27 +46,24 @@ export default function Input({ tasks, setTasks }) {
       <button className="addButton" onClick={addTask}>
         Add
       </button>
-      <button
-        className="priorityButton"
-        value="low"
-        onClick={(e) => setPriority(e.target.value)}
-      >
-        low
-      </button>
-      <button
-        className="priorityButton"
-        value="normal"
-        onClick={(e) => setPriority(e.target.value)}
-      >
-        normal
-      </button>
-      <button
-        className="priorityButton"
-        value="high"
-        onClick={(e) => setPriority(e.target.value)}
-      >
-        high
-      </button>
+
+   
+    <select id="browsers" onChange={(e)=> setPriority(e.target.value)}>
+    <option  value="low">
+      low
+    </option>
+    <option selected ="selected" value="normal">
+      normal
+    </option>
+    <option  value="high">
+      high
+    </option>
+    
+    </select>
+    
+
+      
+     
     </div>
   );
 }

@@ -11,8 +11,7 @@ export default function Weather() {
     key: "26ce245088c3cd75b76abae32afa318b",
     base: "https://api.openweathermap.org/data/2.5/",
   };
-  var controller = new AbortController();
-  var signal = controller.signal;
+ 
 
   useEffect(() => {
     fetch(`${api.base}weather?q=${loc}&appid=${api.key}`)
