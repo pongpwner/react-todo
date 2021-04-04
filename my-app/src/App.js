@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Title } from "./components/Title";
+import React, { useState, useEffect, useReducer } from "react";
 import Input from "./components/Input";
 import TaskList from "./components/TaskList";
 import Today from "./components/Today";
@@ -9,9 +8,28 @@ import Weather from "./components/Weather";
 import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  var localData;
+  var JSONData;
+  
+    localData= localStorage.getItem("tasks");
+    if (localData==undefined){
+      console.log("yahoo");
+      JSONData=[];
+    } else{
+      JSONData=JSON.parse(localData);
+    }
+  
+  console.log(localData);
+  
+
+  const [tasks, setTasks] = useState(JSONData);
   const [today, setToday] = useState("");
-  console.log(Array.isArray(tasks));
+  //console.log(Array.isArray(tasks));
+
+  useEffect(()=>{
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+    
+  },[tasks])
 
   return (
     <div className="App">
