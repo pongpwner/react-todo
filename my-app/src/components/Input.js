@@ -22,9 +22,9 @@ export default function Input({ tasks, setTasks }) {
         status: status,
       },
     ]);
-    
+
     setTaskName("");
-    setPriority("normal");
+    //setPriority("normal");
     console.log(tasks);
     console.log(Array.isArray(tasks));
   }
@@ -47,23 +47,13 @@ export default function Input({ tasks, setTasks }) {
         Add
       </button>
 
-   
-    <select id="browsers" onChange={(e)=> setPriority(e.target.value)}>
-    <option  value="low">
-      low
-    </option>
-    <option selected ="selected" value="normal">
-      normal
-    </option>
-    <option  value="high">
-      high
-    </option>
-    
-    </select>
-    
-
-      
-     
+      <select id="browsers" onChange={(e) => setPriority(e.target.value)}>
+        <option value="low">low</option>
+        <option selected="selected" value="normal">
+          normal
+        </option>
+        <option value="high">high</option>
+      </select>
     </div>
   );
 }
