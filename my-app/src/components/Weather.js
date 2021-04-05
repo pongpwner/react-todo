@@ -11,32 +11,31 @@ export default function Weather() {
     key: "26ce245088c3cd75b76abae32afa318b",
     base: "https://api.openweathermap.org/data/2.5/",
   };
- 
 
   useEffect(() => {
-    fetch(`${api.base}weather?q=${loc}&appid=${api.key}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCity(data["name"]);
-        setTemp(Math.round((data["main"]["temp"] - 273.15) * (9 / 5) + 32));
-        setDesc(data["weather"][0]["description"]);
-        setDisplay(data.name);
-      })
-      .catch((err) => console.log("wrong city name"));
-  }, [api.base, loc, api.key]);
+    function getWeather() {
+      fetch(`${api.base}weather?q=${loc}&appid=${api.key}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setCity(data["name"]);
+          setTemp(Math.round((data["main"]["temp"] - 273.15) * (9 / 5) + 32));
+          setDesc(data["weather"][0]["description"]);
+          setDisplay(data.name);
+        })
+        .catch((err) => console.log("wrong city name"));
+    }
+    getWeather();
+    const interval = setInterval(() => {
+      getWeather();
+    }, 120000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [loc, api.base, api.key]);
 
   function displayWeather() {
-    //console.log(city.city);
     setLoc(city);
-    // fetch(`${api.base}weather?q=${city}&appid=${api.key}`)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setCity(data["name"]);
-    //     setTemp((data["main"]["temp"] - 273.15) * (9 / 5) + 32);
-    //     setDesc(data["weather"][0]["description"]);
-    //   })
-    //   .catch((err) => console.log("wrong city name"));
   }
 
   return (

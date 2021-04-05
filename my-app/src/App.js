@@ -10,26 +10,22 @@ import "./App.css";
 function App() {
   var localData;
   var JSONData;
-  
-    localData= localStorage.getItem("tasks");
-    if (localData==undefined){
-      console.log("yahoo");
-      JSONData=[];
-    } else{
-      JSONData=JSON.parse(localData);
-    }
-  
-  console.log(localData);
-  
+
+  localData = localStorage.getItem("tasks");
+  if (localData === undefined) {
+    console.log("yahoo");
+    JSONData = [];
+  } else {
+    JSONData = JSON.parse(localData);
+  }
 
   const [tasks, setTasks] = useState(JSONData);
   const [today, setToday] = useState("");
   //console.log(Array.isArray(tasks));
 
-  useEffect(()=>{
-    localStorage.setItem("tasks",JSON.stringify(tasks));
-    
-  },[tasks])
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="App">
