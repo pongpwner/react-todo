@@ -9,9 +9,24 @@ export default function Task({
   priority,
   status,
   setStatus,
+  lists,
+  setLists,
+  currentList,
+  setCurrentList,
 }) {
   function deleteTask() {
+    console.log(currentList);
     setTasks((tasks) => tasks.filter((ev) => ev.id !== task.id));
+    let temp = lists.map((list) => {
+      if (currentList === list.id) {
+        lists.tasks = [];
+      }
+      return list;
+    });
+    console.log(tasks);
+    console.log(lists);
+
+    setLists(temp);
   }
 
   function completeTask() {

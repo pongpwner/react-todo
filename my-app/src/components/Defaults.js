@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { default1 } from "./defaultTasks/Default1";
 
-export default function Defaults({ tasks, setTasks, today, setToday }) {
+export default function Defaults({
+  tasks,
+  setTasks,
+  today,
+  setToday,
+  modalState,
+  setModalState,
+}) {
   function handleDefault(e) {
     setDate();
     if (e.target.value === "1") {
       setDefault1();
     }
+  }
+  function handleModal() {
+    setModalState(true);
   }
   //not sure if i need this set date method.  but i want it to recheck the date everytime
   //i click a efault because it would be a new day if i did not close the app
@@ -30,6 +40,9 @@ export default function Defaults({ tasks, setTasks, today, setToday }) {
         onClick={(e) => handleDefault(e)}
       >
         Default 1
+      </button>
+      <button className="" onClick={handleModal}>
+        create new list
       </button>
     </div>
   );

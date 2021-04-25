@@ -1,7 +1,14 @@
 import React from "react";
 import Task from "./Task";
 
-export default function TaskList({ tasks, setTasks }) {
+export default function TaskList({
+  tasks,
+  setTasks,
+  lists,
+  setLists,
+  currentList,
+  setCurrentList,
+}) {
   return (
     <div className="taskListContainer">
       {tasks.map((task) => (
@@ -14,6 +21,10 @@ export default function TaskList({ tasks, setTasks }) {
           priority={task.priority}
           status={task.status}
           setStatus={task.setStatus}
+          lists={lists}
+          setLists={setLists}
+          currentList={currentList}
+          setCurrentList={setCurrentList}
         />
       ))}
     </div>
