@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import List from "./List.js";
 
 export default function Lists({
+  //thhis is the list of lists
   lists,
   setTasks,
   setCurrentList,
@@ -26,15 +27,15 @@ export default function Lists({
   ); // lists cant pass lists into list
 }
 //need to get the list.tasks into the change list function
-{
-  /* <List
+
+/* <List
           lists={lists}
           setTasks={setTasks}
           tasks={list.tasks}
           name={list.name}
           key={list.id}
         /> */
-  /*<div className="listsContainer">
+/*<div className="listsContainer">
       {lists.map((list) => (
         <div
           onClick={(e) => changeList(e.target.data)}
@@ -44,4 +45,3 @@ export default function Lists({
         </div>
       ))}
     </div> */
-}

@@ -19,13 +19,19 @@ export default function Task({
     setTasks((tasks) => tasks.filter((ev) => ev.id !== task.id));
     let temp = lists.map((list) => {
       if (currentList === list.id) {
-        lists.tasks = [];
+        // change list goes here
+        console.log(tasks);
+        //set list tasks to current tasks
+        list.tasks = tasks;
+        console.log(list.tasks);
+        //currently does not save last delete
+        //need to add the save function when adding new iqtem to the list
       }
       return list;
     });
-    console.log(tasks);
-    console.log(lists);
-
+    // console.log(tasks);
+    //console.log(lists);
+    console.log(temp);
     setLists(temp);
   }
 
