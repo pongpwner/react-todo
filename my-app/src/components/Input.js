@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-export default function Input({ tasks, setTasks }) {
+export default function Input({
+  tasks,
+  setTasks,
+  lists,
+  currentList,
+  setLists,
+}) {
   const [taskName, setTaskName] = useState("");
   const [priority, setPriority] = useState("normal");
   const [status, setStatus] = useState(false);
@@ -10,9 +16,29 @@ export default function Input({ tasks, setTasks }) {
 
   // },[setPriority()]
   // )
+  useEffect(() => {
+    if (lists != null) {
+      setLists(
+        lists.map((list) => {
+          if (currentList === list.id) {
+            // change list goes here
+            console.log(tasks);
+            //set list tasks to current tasks
+            list.tasks = tasks;
+            console.log(list.tasks);
+            //currently does not save last delete
+            //need to add the save function when adding new iqtem to the list
+          }
+
+          return list;
+        })
+      );
+    }
+  }, [tasks]);
 
   function addTask() {
     console.log(tasks);
+
     setTasks((prevTasks) => [
       ...prevTasks,
       {

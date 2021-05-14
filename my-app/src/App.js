@@ -55,7 +55,13 @@ function App() {
           setModalState={setModalState}
         />
 
-        <Input tasks={tasks} setTasks={setTasks} />
+        <Input
+          tasks={tasks}
+          setTasks={setTasks}
+          lists={lists}
+          currentList={currentList}
+          setLists={setLists}
+        />
         <SettingButtons tasks={tasks} setTasks={setTasks} />
         <NewListModal
           lists={lists}

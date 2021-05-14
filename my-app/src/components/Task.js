@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Task({
   task,
@@ -14,25 +14,35 @@ export default function Task({
   currentList,
   setCurrentList,
 }) {
+  useEffect(() => {
+    if (lists != null) {
+      setLists(
+        lists.map((list) => {
+          if (currentList === list.id) {
+            // change list goes here
+            //console.log(tasks);
+            //set list tasks to current tasks
+            list.tasks = tasks;
+            //console.log(list.tasks);
+            //currently does not save last delete
+            //need to add the save function when adding new iqtem to the list
+          }
+          return list;
+        })
+      );
+    }
+  }, [tasks]);
+
   function deleteTask() {
+    //use async ane await to get set tasks to run first
     console.log(currentList);
     setTasks((tasks) => tasks.filter((ev) => ev.id !== task.id));
-    let temp = lists.map((list) => {
-      if (currentList === list.id) {
-        // change list goes here
-        console.log(tasks);
-        //set list tasks to current tasks
-        list.tasks = tasks;
-        console.log(list.tasks);
-        //currently does not save last delete
-        //need to add the save function when adding new iqtem to the list
-      }
-      return list;
-    });
+    //wrap all the temp code in setLiist
+
     // console.log(tasks);
     //console.log(lists);
-    console.log(temp);
-    setLists(temp);
+    //console.log(temp);
+    //setLists(temp);
   }
 
   function completeTask() {
