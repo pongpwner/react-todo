@@ -16,8 +16,8 @@ export default function List({
   }
 
   return (
-    <div onClick={changeList}>
-      <div>{list.name}</div>
+    <div className="listContainer" onClick={changeList}>
+      <div className="listName">{list.name}</div>
     </div>
   );
 }

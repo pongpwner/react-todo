@@ -14,6 +14,9 @@ function App() {
   var localData;
   var JSONData;
 
+  var localData1;
+  var JSONData1 = [];
+
   localData = localStorage.getItem("tasks");
   if (localData === undefined) {
     console.log("yahoo");
@@ -22,9 +25,17 @@ function App() {
     JSONData = JSON.parse(localData);
   }
 
+  localData1 = localStorage.getItem("lists");
+  if (localData1 === undefined) {
+    console.log("yaaahoo");
+    JSONData1 = [];
+  } else {
+    JSONData1 = JSON.parse(localData1);
+  }
+
   const [tasks, setTasks] = useState(JSONData);
   const [today, setToday] = useState("");
-  const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState(JSONData1);
   const [listName, setListName] = useState("");
   const [modalState, setModalState] = useState(false);
   const [currentList, setCurrentList] = useState(0); // list id
@@ -33,6 +44,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("lists", JSON.stringify(lists));
+  }, [lists]);
 
   return (
     <div className="App">

@@ -38,7 +38,7 @@
 .weatherDescription {
   font-size: 1.3em;
 }
-/*////////////////////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////////////////*/
 .addButton {
   margin-right: 3px;
 }
@@ -108,8 +108,20 @@
   background-color: gray;
   text-decoration: line-through white;
 }
+/*////////////////////////lists/////////////////////////////////////////*/
+.listsContainer{
 
-/*////////////////////////modal/////////////////////////////////////////*/
+  border: 1px black solid;
+  border-bottom: none;
+  width:25%;
+}
+.listContainer{
+  border-bottom: 1px black solid;
+}
+.listName{
+  font-size:1.5em;
+}
+/*/ ///////////////////////modal/////////////////////////////////////////*/
 .newListModalContainer {
   position: fixed;
   top: 0;
