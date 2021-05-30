@@ -23,16 +23,23 @@ export default function NewListModal({
         status: false,
       },
     ]);
+    setTask("");
+  }
+  function enter(e) {
+    if (e.key === "Enter") {
+      addTask();
+    }
   }
 
   function submitList() {
-    //SET TO CURRENT LIST
+    //SET TO CURRENT LIST.  implement
     //console.log(listName);
     let newId = Math.random();
     setLists([...lists, { tasks: tasks1, name: listName, id: Math.random() }]);
     //console.log(lists);
     setTasks1([]);
     setModalState(false);
+    setListName("");
 
     // console.log(tasks1);
     // console.log(modalState);
@@ -44,13 +51,16 @@ export default function NewListModal({
       <div className="innerModal">
         <input
           type="text"
+          value={listName}
           placeholder="list name"
           onChange={(e) => setListName(e.target.value)}
         ></input>
         <input
           type="text"
+          value={task}
           placeholder="add new list item"
           onChange={(e) => setTask(e.target.value)}
+          onKeyDown={(e) => enter(e)}
         ></input>
 
         <input type="submit" placeholder="add" onClick={addTask}></input>

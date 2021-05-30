@@ -7,6 +7,7 @@ export default function List({
   key,
   setCurrentList,
   currentList,
+  setLists,
 }) {
   function changeList() {
     console.log(key);
@@ -14,10 +15,19 @@ export default function List({
     setCurrentList(list.id);
     //console.log(currentList);
   }
+  function deleteList() {
+    setLists((lists) => lists.filter((ev) => ev.id !== list.id));
+    setTasks([]);
+  }
 
   return (
-    <div className="listContainer" onClick={changeList}>
-      <div className="listName">{list.name}</div>
+    <div className="listContainer">
+      <div className="listName" onClick={changeList}>
+        {list.name}
+      </div>
+      <button className="closeButton" onClick={deleteList}>
+        X
+      </button>
     </div>
   );
 }

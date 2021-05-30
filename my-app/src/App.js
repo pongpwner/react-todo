@@ -54,12 +54,6 @@ function App() {
       <div className="appContainer">
         <Today today={today} setToday={setToday} />
         <Weather />
-        <Lists
-          lists={lists}
-          setTasks={setTasks}
-          setCurrentList={setCurrentList}
-          currentList={currentList}
-        />
 
         <Defaults
           tasks={tasks}
@@ -85,15 +79,23 @@ function App() {
           setModalState={setModalState}
           setCurrentList={setCurrentList}
         />
-
-        <TaskList
-          tasks={tasks}
-          setTasks={setTasks}
-          lists={lists}
-          setLists={setLists}
-          currentList={currentList}
-          setCurrentList={setCurrentList}
-        />
+        <div class="domLists">
+          <Lists
+            lists={lists}
+            setTasks={setTasks}
+            setCurrentList={setCurrentList}
+            currentList={currentList}
+            setLists={setLists}
+          />
+          <TaskList
+            tasks={tasks}
+            setTasks={setTasks}
+            lists={lists}
+            setLists={setLists}
+            currentList={currentList}
+            setCurrentList={setCurrentList}
+          />
+        </div>
       </div>
     </div>
   );

@@ -45,7 +45,7 @@
 .taskListContainer {
   margin-top: 2%;
   border-top: 1px solid black;
-  width: 50%;
+  width: 80%;
 }
 .taskContainer {
   border-bottom: 1px solid black;
@@ -109,18 +109,52 @@
   text-decoration: line-through white;
 }
 /*////////////////////////lists/////////////////////////////////////////*/
-.listsContainer{
-
+.domLists {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.listsContainer {
   border: 1px black solid;
   border-bottom: none;
-  width:25%;
+  width: 25%;
+  margin-right: 2%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
 }
-.listContainer{
+.listContainer {
   border-bottom: 1px black solid;
+  display: flex;
+  justify-content: space-between;
 }
-.listName{
-  font-size:1.5em;
+.listName {
+  font-size: 1.5em;
+  padding-left: 1%;
+  flex-wrap: wrap;
+  flex-basis: 85%;
 }
+.listContainer .closeButton {
+  flex-basis: 15%;
+  color: black;
+  border-radius: 0;
+  border: none;
+}
+.listContainer .closeButton:hover {
+  background-color: red;
+  color: white;
+}
+.clearListButton {
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.clearListButton:hover {
+  background-color: red;
+  color: white;
+}
+
 /*/ ///////////////////////modal/////////////////////////////////////////*/
 .newListModalContainer {
   position: fixed;

@@ -7,12 +7,17 @@ export default function Lists({
   setTasks,
   setCurrentList,
   currentList,
+  setLists,
 }) {
-  function changeList(e) {
-    setTasks(JSON.parse(e));
+  function clearLists() {
+    setLists([]);
+    setTasks([]);
   }
   return (
     <div className="listsContainer">
+      <button className="clearListButton" onClick={clearLists}>
+        Clear Lists
+      </button>
       {lists.map((list) => (
         <List
           list={list}
@@ -21,6 +26,7 @@ export default function Lists({
           key={list.id}
           setCurrentList={setCurrentList}
           currentList={currentList}
+          setLists={setLists}
         />
       ))}
     </div>
